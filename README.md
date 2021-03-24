@@ -32,10 +32,9 @@ If you don't have local server running, in terminal enter:
 ## API
 
 All bodies of requests must be in json. Make sure the headers have content-type set to application/json.  
-NOTE: the access token can be placed in body, as authorization header (type: bearer token) or as url parameter. Example of body:
-  
+NOTE: the access token can be placed in body, as authorization header (type: bearer token) or as url parameter. Example of body:  
 {  
-  "token":"yourTokenGoesHere"  
+    "token":"yourTokenGoesHere"  
 }  
 
 
@@ -67,10 +66,9 @@ This is a GET call, requires the token. Returns mesage about successful logout.
 
 ### Weather
 
-url/project-name/api/auth/weather
+url/project-name/api/weather
 
 This is a POST call, requires the token and body with param location. Returns mesage about not having a key, because all weather apis are closed and require a key to access them. To see a record returned from open api of google books use:
-  
 {  
-  "location":"googlebooks"  
+     "location":"googlebooks"  
 }  

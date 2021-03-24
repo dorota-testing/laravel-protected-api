@@ -40,7 +40,7 @@ class WeatherController extends Controller
             return $test->json(); 
         }
 
-        $weather = Http::get($this->weather_api_url .'?key='. $this->weather_api_key .'&location='. $location); 
+        $weather = Http::get($this->weather_api_url .'?key='. $this->weather_api_key .'&q='. $location.'&days=3'); 
 
         return $weather->json();
     }

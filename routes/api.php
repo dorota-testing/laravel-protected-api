@@ -18,14 +18,23 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 });
  */
+
 Route::group([
-    'middleware'=>'api',
-    'namespace'=>'App\Http\Controllers',
-    'prefix'=>'auth'
-], function($router) {
-    Route::post('login','AuthController@login');
-    Route::post('register','AuthController@register');
-    Route::post('logout','AuthController@logout');
-    Route::get('profile','AuthController@profile');
-    Route::post('refresh','AuthController@refresh');
+    'middleware' => 'api',
+    'namespace' => 'App\Http\Controllers',
+    'prefix' => 'auth'
+], function ($router) {
+    Route::post('login', [ 'as' => 'login', 'uses' => 'AuthController@login']);
+   Route::get('login', [ 'as' => 'login', 'uses' => 'AuthController@denied']);
+    Route::post('register', 'AuthController@register');
+    Route::post('logout', 'AuthController@logout');
+    Route::get('profile', 'AuthController@profile');
+    Route::post('refresh', 'AuthController@refresh');
+});
+
+Route::group([
+    'middleware' => 'api',
+    'namespace' => 'App\Http\Controllers'
+], function ($router) {
+    Route::get('weather', 'WeatherController@weather');
 });

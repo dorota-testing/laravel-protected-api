@@ -12,7 +12,7 @@ class AuthController extends Controller
     public function __construct()
     {
         // this makes it so that calls to login and register are not protected
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
+        $this->middleware('auth:api', ['except' => ['login','denied', 'register']]);
     }
 
     public function login(Request $request)
@@ -29,18 +29,23 @@ class AuthController extends Controller
 
         $this->guard()->factory()->setTTL($token_validity);
 
-        if (!$token == $this->guard()->attempt($validator->validated())) {
+        if (! $token = $this->guard()->attempt($validator->validated())) {
             return response()->json(['error' => 'Unauthorized'], 400);
         }
 
         return $this->respondWithToken($token);
     }
 
+    public function denied(Request $request)
+    {      
+        return response()->json(["error"=>"Not authorised. Access denied"]);
+    }
+
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|between:2,100',
-            'email' => 'required|email|unique',
+            'email' => 'required|email|unique:users',
             'password' => 'required|string|min:6'
         ]);
         if ($validator->fails()) {

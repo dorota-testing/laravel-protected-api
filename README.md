@@ -1,5 +1,5 @@
 ## Installation
-You need composer installed for this, and php either globally on your system or on local server such as xampp. Clone or download this repo on your machine (in place where php runs). In terminal navigate to project folder and run:
+You need composer installed for this, and php either globally on your system or on local server such as xampp. Clone or download this repo on your machine (to a place where php runs). In terminal navigate to project folder and run:
 ```
   composer install
 ```
@@ -14,7 +14,7 @@ Then, change name of file .env.example to .env. Open .env file and change
 
 to
 
-  DB_CONNECTION=mysql
+  DB_CONNECTION=sqlite
 
 Then close the file and run:
 ```
@@ -44,7 +44,7 @@ Replace url/project-name/ with your set up.
 
 url/project-name/api/auth/register
 
-This is a post call, requires a body with name, email and password. Returns either validator errors or confirmation of creating a user.
+This is a post call, requires a body with name, email and password. Returns either validator errors or confirmation of creating a user. You need to register to be able to access the api. 
 
 ### Login
 
@@ -68,7 +68,7 @@ This is a GET call, requires the token. Returns mesage about successful logout.
 
 url/project-name/api/weather
 
-This is a POST call, requires the token and body with param location. Returns mesage about not having a key, because all weather apis are closed and require a key to access them. To see a record returned from open api of google books use:
+This is a POST call, requires the token and body with param location. Returns mesage about not having a key, because all weather apis are closed and require a key to access them. To see a record returned from open api of google books use:  
 {  
      "location":"googlebooks"  
 }  

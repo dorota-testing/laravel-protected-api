@@ -62,7 +62,7 @@ This is a post call, requires the token. Returns mesage about successful logout.
 
 url/project-name/api/auth/profile
 
-This is a GET call, requires the token. Returns mesage about successful logout.
+This is a GET call, requires the token. Returns the info of the logged in user. Useful for testing.
 
 ### Weather
 

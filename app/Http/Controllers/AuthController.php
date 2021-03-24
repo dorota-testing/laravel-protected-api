@@ -36,7 +36,7 @@ class AuthController extends Controller
         return $this->respondWithToken($token);
     }
 
-    public function denied(Request $request)
+    public function denied()
     {      
         return response()->json(["error"=>"Not authorised. Access denied"]);
     }

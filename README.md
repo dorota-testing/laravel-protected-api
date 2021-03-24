@@ -17,18 +17,18 @@ to
   DB_CONNECTION=mysql
 
 Then close the file and run:
-
+```
   php artisan key:generate
   php artisan jwt:secret
-
+```
 Then create file database.sqlite in database folder and run:
-
+```
   php artisan migrate
-
+```
 If you don't have local server running, in terminal enter:
-
+```
   php artisan serve  
-
+```
 ## API
 
 All bodies of requests must be in json. Make sure the headers have content-type set to application/json.
